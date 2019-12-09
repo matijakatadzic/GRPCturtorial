@@ -1,0 +1,23 @@
+﻿@page "/grpc"
+
+@using Web.Data
+@inject HelloService HelloService
+
+<h1>Grpc Service Turtorial</h1>
+<h3>@ShowData()</h3>
+
+
+<p>@response.name</p>
+<p>@response.linkedin</p>
+<p>@response.git</p>
+
+@code {
+    private Hello response;
+
+    private string ShowData()
+    {
+        response = HelloService.GetResponse();
+
+        return "Successful connection to gRPC";
+    }
+}
